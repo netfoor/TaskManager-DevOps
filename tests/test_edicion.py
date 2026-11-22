@@ -79,6 +79,18 @@ def test_editar_tarea_inexistente_devuelve_404(cliente):
     assert cliente.get("/tareas/9999/editar").status_code == 404
 
 
+def test_editar_tarea_inexistente_no_confirma_guardado(cliente):
+    respuesta = cliente.post(
+        "/tareas/9999/editar",
+        data={"nombre": "No existe", "descripcion": "No existe", "prioridad": "Alta"},
+        follow_redirects=True,
+    )
+    cuerpo = respuesta.get_data(as_text=True)
+
+    assert "No se encontró la tarea solicitada." in cuerpo
+    assert "La tarea se actualizó correctamente." not in cuerpo
+
+
 def test_actualizar_tarea_devuelve_falso_sin_registros(aplicacion):
     with aplicacion.app_context():
         assert actualizar_tarea(9999, "Inexistente", "", "Baja") is False

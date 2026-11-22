@@ -1,0 +1,22 @@
+name: Integracion Continua
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  pruebas:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar codigo
+        uses: actions/checkout@v7.0.1
+      - name: Configurar uv
+        uses: astral-sh/setup-uv@v10.4.0
+        with:
+          version: "0.11.7"
+      - name: Sincronizar dependencias
+        run: uv sync --locked
+      - name: Ejecutar pruebas
+        run: uv run pytest -v

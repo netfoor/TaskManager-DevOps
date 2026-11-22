@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TaskManager</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  </head>
+  <body>
+    <main class="contenedor">
+      <header class="cabecera">
+        <h1>TaskManager</h1>
+        <p>Administra las tareas de tu equipo en un solo lugar.</p>
+      </header>
+
+      {% with avisos = get_flashed_messages(with_categories=true) %}
+        {% if avisos %}
+          <div class="avisos" aria-live="polite">
+            {% for categoria, mensaje in avisos %}
+              <p class="aviso{{ ' aviso--error' if categoria == 'error' else '' }}">{{ mensaje }}</p>
+            {% endfor %}
+          </div>
+        {% endif %}
+      {% endwith %}
+
+      <section class="panel" aria-label="Acciones generales">
+        {% for accion in acciones_globales() %}
+          {% include accion %}
+        {% endfor %}
+      </section>
+
+      <section class="panel" aria-label="Listado de tareas">
+        <h2>Tareas registradas</h2>
+        {% if tareas %}
+          <div class="tabla-contenedor">
+            <table>
+              <thead>
+                <tr>
+                  <th>Tarea</th>
+                  <th>Descripción</th>
+                  <th>Estado</th>
+                  <th>Prioridad</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for tarea in tareas %}
+                  <tr>
+                    <td>{{ tarea.nombre }}</td>
+                    <td>{{ tarea.descripcion or "Sin descripción" }}</td>
+                    <td><span class="etiqueta etiqueta--estado">{{ tarea.estado }}</span></td>
+                    <td><span class="etiqueta etiqueta--{{ tarea.prioridad | lower }}">{{ tarea.prioridad }}</span></td>
+                    <td class="celda-acciones">
+                      {% for accion in acciones_fila() %}
+                        {% include accion %}
+                      {% endfor %}
+                    </td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        {% else %}
+          <p class="vacio">Todavía no hay tareas registradas.</p>
+        {% endif %}
+      </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+    {% for script in scripts_modulo() %}
+      <script src="{{ url_for('static', filename=script) }}"></script>
+    {% endfor %}
+  </body>
+</html>

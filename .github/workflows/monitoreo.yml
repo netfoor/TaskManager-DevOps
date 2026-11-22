@@ -1,0 +1,30 @@
+name: Monitoreo
+on:
+  schedule:
+    - cron: '0 * * * *'
+  workflow_dispatch:
+jobs:
+  monitoreo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verificar salud y pagina principal
+        env:
+          URL_BASE: ${{ vars.URL_PUBLICA }}
+        run: |
+          set -eu
+          base=${URL_BASE%/}
+          if [ -z "$base" ]; then
+            echo "Falta la variable de repositorio URL_PUBLICA"
+            exit 1
+          fi
+          for ruta en /health /; do
+            medicion=$(curl -sS -o /tmp/respuesta.txt -w '%{http_code} %{time_total}' "$base$ruta")
+            codigo=${medicion% *}
+            tiempo=${medicion##* }
+            echo "$(date -u +%FT%TZ) ruta=$ruta codigo=$codigo tiempo=${tiempo}s"
+            if [ "$codigo" -lt 200 ] || [ "$codigo" -ge 400 ]; then
+              echo "La ruta $ruta no respondio correctamente"
+              cat /tmp/respuesta.txt
+              exit 1
+            fi
+          done

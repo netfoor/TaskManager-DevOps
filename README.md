@@ -36,7 +36,9 @@ uv export --no-hashes --no-dev -o requirements.txt
 
 ## Despliegue
 
-La configuración y la URL pública se documentan en `docs/despliegue.md`.
+La versión publicada está disponible en https://taskmanager-production-143c7d8d.up.railway.app y corresponde al Release https://github.com/netfoor/TaskManager-DevOps/releases/tag/v1.0.0.
+
+La configuración de Railway se documenta en `docs/despliegue.md` y el monitoreo en `docs/monitoreo.md`.
 
 ## Planeación
 

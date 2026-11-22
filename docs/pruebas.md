@@ -1,6 +1,6 @@
 # Pruebas funcionales
 
-Las pruebas se ejecutaron contra la aplicación real en local, con Python 3.13, Flask 3.1.3 y una base SQLite temporal definida con `TASKMANAGER_DB`. La salida completa de la ejecución está en `.remedial/evidencias/funcional_local.txt` y la de las pruebas automáticas en `.remedial/evidencias/pytest_integrado.txt`.
+Las pruebas se ejecutaron contra la aplicación real en local, con Python 3.13, Flask 3.1.3 y una base SQLite temporal definida con `TASKMANAGER_DB`. La salida completa de la ejecución está en `docs/evidencias/pruebas_funcionales.txt` y la de las pruebas automáticas en `docs/evidencias/pruebas_automaticas.txt`.
 
 | ID | Prueba y pasos | Resultado esperado | Resultado obtenido | Estado |
 | --- | --- | --- | --- | --- |
@@ -18,8 +18,24 @@ Las pruebas se ejecutaron contra la aplicación real en local, con Python 3.13, 
 
 El caso CP08 reveló un error real en la edición: la ruta POST no comprobaba que la tarea existiera antes de actualizar, por lo que informaba de un guardado inexistente. Se registró el issue https://github.com/netfoor/TaskManager-DevOps/issues/26 con funcionalidad afectada, pasos para reproducir, resultado obtenido, esperado y prioridad.
 
-La corrección verifica la existencia de la tarea en la petición POST y muestra «No se encontró la tarea solicitada.»; se agregó una prueba de regresión y la ejecución completa quedó en 26 pruebas aprobadas. El cambio se integra mediante el Pull Request de la rama `fix/editar-inexistente`.
+La corrección verifica la existencia de la tarea en la petición POST y muestra «No se encontró la tarea solicitada.»; se agregó una prueba de regresión y la ejecución completa quedó en 26 pruebas aprobadas. El cambio se integró mediante el Pull Request #27.
 
 ## Pruebas automáticas
 
 La integración de las cuatro ramas de funcionalidades ejecutó 25 pruebas unitarias antes de la corrección y 26 después. Todas las pruebas llaman a funciones reales de la aplicación mediante el cliente de pruebas de Flask y una base SQLite temporal.
+
+## Verificación en el despliegue público
+
+Después del despliegue en Railway se ejecutó el mismo recorrido funcional contra https://taskmanager-production-143c7d8d.up.railway.app:
+
+| Acción | Resultado obtenido |
+| --- | --- |
+| Abrir la página principal | Código 200, título `TaskManager` y encabezado `Tareas registradas`. |
+| Registrar «Tarea de verificacion» | Mensaje «La tarea se registró correctamente.» y tarea visible con id 1. |
+| Editar la tarea | Mensaje «La tarea se actualizó correctamente.» y nombre «Tarea de verificacion editada». |
+| Cambiar estado a Terminada | Mensaje de confirmación y etiqueta «Terminada». |
+| Cambiar prioridad a Baja | Mensaje de confirmación y etiqueta con clase `etiqueta--baja`. |
+| Eliminar la tarea | Mensaje «La tarea se eliminó correctamente.»; la tarea desapareció del listado. |
+| Consultar `/health` | `{"base_de_datos":"disponible","estado":"ok","ruta":"/data/tareas.db"}`, código 200. |
+
+La salida completa está en `docs/evidencias/despliegue_verificacion.txt`.

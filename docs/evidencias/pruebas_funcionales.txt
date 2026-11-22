@@ -1,0 +1,46 @@
+=== Pruebas funcionales locales - 2026-11-22T12:02:30-06:00 ===
+Base de datos: archivo SQLite temporal configurado con TASKMANAGER_DB.
+
+--- CP01 Registrar una tarea ---
+Pasos: POST /tareas con nombre 'Elaborar documentacion', descripcion y prioridad Alta.
+<p class="aviso">La tarea se registró correctamente.</p>
+<td>Elaborar documentacion</td>
+<form method="post" action="/tareas/1/eliminar" data-confirma="¿Eliminar la tarea «Elaborar documentacion»?">
+Id asignado: 1
+
+--- CP02 Registrar una tarea sin nombre ---
+Pasos: POST /tareas con nombre en blanco.
+<p class="aviso aviso--error">El nombre de la tarea es obligatorio.</p>
+Total de tareas despues de CP02: 1
+
+--- CP03 Consultar tareas ---
+<h2>Tareas registradas</h2>
+<td>Elaborar documentacion</td>
+<form method="post" action="/tareas/1/eliminar" data-confirma="¿Eliminar la tarea «Elaborar documentacion»?">
+
+--- CP04 Editar una tarea ---
+<p class="aviso">La tarea se actualizó correctamente.</p>
+<td>Elaborar documentacion final</td>
+<form method="post" action="/tareas/1/eliminar" data-confirma="¿Eliminar la tarea «Elaborar documentacion final»?">
+
+--- CP05 Eliminar una tarea ---
+<p class="aviso">La tarea se eliminó correctamente.</p>
+Tareas restantes: 1
+
+--- CP06 Cambiar estado ---
+<p class="aviso">El estado de la tarea se actualizó correctamente.</p>
+<td><span class="etiqueta etiqueta--estado">Terminada</span></td>
+
+--- CP07 Seleccionar prioridad ---
+<p class="aviso">La prioridad de la tarea se actualizó correctamente.</p>
+<td><span class="etiqueta etiqueta--baja">Baja</span></td>
+
+--- CP08 Editar una tarea inexistente ---
+Pasos: POST /tareas/9999/editar con datos validos.
+<p class="aviso">La tarea se actualizó correctamente.</p>
+
+--- CP09 Health ---
+{"base_de_datos":"disponible","estado":"ok","ruta":"archivo SQLite temporal"}
+
+Codigo HTTP: 200
+Tiempo: 0.004206s

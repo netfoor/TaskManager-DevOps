@@ -1,0 +1,21 @@
+=== Monitoreo de la aplicacion publicada ===
+URL: https://taskmanager-production-143c7d8d.up.railway.app
+Variable de repositorio: URL_PUBLICA
+
+--- Ejecucion final desde main ---
+Run: https://github.com/netfoor/TaskManager-DevOps/actions/runs/45057779144
+Fecha: 2026-11-22T18:55:22Z
+ruta=/health codigo=200 tiempo=0.053253s
+ruta=/ codigo=200 tiempo=0.039118s
+
+--- Ejecucion de verificacion de la correccion ---
+Run: https://github.com/netfoor/TaskManager-DevOps/actions/runs/45057508119
+Fecha: 2026-11-22T18:52:21Z
+ruta=/health codigo=200 tiempo=1.344063s
+ruta=/ codigo=200 tiempo=0.117429s
+
+--- Ejecucion fallida real ---
+Run: https://github.com/netfoor/TaskManager-DevOps/actions/runs/45057295341
+Fecha: 2026-11-22T18:50:06Z
+Resultado: codigo de salida 2, error de sintaxis en el bucle del script; no se consultaron las rutas.
+Correccion: cambio de 'for ruta en' a 'for ruta in', registrada en el issue #35 y cerrada con el Pull Request #36.

@@ -38,7 +38,7 @@ El error llega al resto del equipo y puede afectar otras funcionalidades o la ve
 
 ## 10. ¿Por qué DevOps requiere monitorear una aplicación después de publicarla?
 
-Publicar no garantiza que la aplicación siga respondiendo: pueden fallar la base de datos, el servidor, el volumen o una dependencia externa. El monitoreo consulta `/health` y la página principal cada hora y de forma manual, registra códigos y tiempos de respuesta, y falla si el servicio deja de responder.
+Publicar no garantiza que la aplicación siga respondiendo: pueden fallar la base de datos, el servidor, el volumen o una dependencia externa. El monitoreo consulta `/health` y la página principal cada seis horas y de forma manual, registra códigos y tiempos de respuesta, y falla si el servicio deja de responder.
 
 ## 11. ¿Qué beneficios obtiene una empresa al implementar DevOps?
 

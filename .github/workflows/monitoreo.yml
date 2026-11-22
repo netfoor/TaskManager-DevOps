@@ -17,7 +17,7 @@ jobs:
             echo "Falta la variable de repositorio URL_PUBLICA"
             exit 1
           fi
-          for ruta en /health /; do
+          for ruta in /health /; do
             medicion=$(curl -sS -o /tmp/respuesta.txt -w '%{http_code} %{time_total}' "$base$ruta")
             codigo=${medicion% *}
             tiempo=${medicion##* }

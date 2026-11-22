@@ -1,0 +1,18 @@
+<div class="acciones-seguimiento">
+  <form method="post" action="{{ url_for('seguimiento.cambiar_estado', identificador=tarea.id) }}">
+    <select name="estado" aria-label="Estado de la tarea">
+      {% for estado in ["Pendiente", "En proceso", "Terminada"] %}
+        <option value="{{ estado }}"{% if estado == tarea.estado %} selected{% endif %}>{{ estado }}</option>
+      {% endfor %}
+    </select>
+    <button type="submit">Estado</button>
+  </form>
+  <form method="post" action="{{ url_for('seguimiento.cambiar_prioridad', identificador=tarea.id) }}">
+    <select name="prioridad" aria-label="Prioridad de la tarea">
+      {% for prioridad in ["Alta", "Media", "Baja"] %}
+        <option value="{{ prioridad }}"{% if prioridad == tarea.prioridad %} selected{% endif %}>{{ prioridad }}</option>
+      {% endfor %}
+    </select>
+    <button type="submit">Prioridad</button>
+  </form>
+</div>

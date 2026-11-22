@@ -1,0 +1,22 @@
+<div class="formulario-registro">
+  <h2>Nueva tarea</h2>
+  <form class="formulario" method="post" action="{{ url_for('registro.registrar_tarea') }}">
+    <label>
+      Nombre
+      <input type="text" name="nombre" maxlength="120" required>
+    </label>
+    <label>
+      Descripción
+      <textarea name="descripcion" maxlength="500"></textarea>
+    </label>
+    <label>
+      Prioridad
+      <select name="prioridad">
+        <option value="Alta">Alta</option>
+        <option value="Media" selected>Media</option>
+        <option value="Baja">Baja</option>
+      </select>
+    </label>
+    <button type="submit">Guardar tarea</button>
+  </form>
+</div>

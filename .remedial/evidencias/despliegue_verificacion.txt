@@ -1,0 +1,35 @@
+=== Verificacion en produccion - 2026-11-22T12:37:37-06:00 ===
+URL: https://taskmanager-production-143c7d8d.up.railway.app
+
+--- pagina principal ---
+codigo=200 tiempo=0.352672s
+<title>TaskManager</title>
+<h2>Tareas registradas</h2>
+
+--- registrar tarea ---
+<p class="aviso">La tarea se registró correctamente.</p>
+<td>Tarea de verificacion</td>
+<form method="post" action="/tareas/1/eliminar" data-confirma="¿Eliminar la tarea «Tarea de verificacion»?">
+id=1
+
+--- editar tarea ---
+<p class="aviso">La tarea se actualizó correctamente.</p>
+<td>Tarea de verificacion editada</td>
+<form method="post" action="/tareas/1/eliminar" data-confirma="¿Eliminar la tarea «Tarea de verificacion editada»?">
+
+--- cambiar estado ---
+<p class="aviso">El estado de la tarea se actualizó correctamente.</p>
+<td><span class="etiqueta etiqueta--estado">Terminada</span></td>
+
+--- cambiar prioridad ---
+<p class="aviso">La prioridad de la tarea se actualizó correctamente.</p>
+<td><span class="etiqueta etiqueta--baja">Baja</span></td>
+
+--- eliminar tarea ---
+<p class="aviso">La tarea se eliminó correctamente.</p>
+La tarea ya no aparece en el listado
+
+--- health final ---
+{"base_de_datos":"disponible","estado":"ok","ruta":"/data/tareas.db"}
+
+codigo=200 tiempo=0.324713s

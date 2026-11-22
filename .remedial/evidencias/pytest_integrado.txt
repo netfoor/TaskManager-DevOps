@@ -1,0 +1,35 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.13, pytest-9.2.0, pluggy-1.7.0 -- /home/netfoor/orca/projects/taskmanager-devops/.venv/bin/python3
+cachedir: .pytest_cache
+rootdir: /home/netfoor/orca/projects/taskmanager-devops
+configfile: pyproject.toml
+collecting ... collected 25 items
+
+tests/test_app.py::test_pagina_principal_sin_tareas PASSED               [  4%]
+tests/test_app.py::test_ruta_de_base_configurable PASSED                 [  8%]
+tests/test_app.py::test_health_verifica_base PASSED                      [ 12%]
+tests/test_app.py::test_obtener_tareas_devuelve_registros PASSED         [ 16%]
+tests/test_app.py::test_listado_muestra_la_tarea_mas_reciente_primero PASSED [ 20%]
+tests/test_edicion.py::test_formulario_de_edicion_carga_datos PASSED     [ 24%]
+tests/test_edicion.py::test_edicion_actualiza_nombre_descripcion_y_prioridad PASSED [ 28%]
+tests/test_edicion.py::test_edicion_sin_nombre_muestra_error PASSED      [ 32%]
+tests/test_edicion.py::test_edicion_rechaza_prioridad_invalida PASSED    [ 36%]
+tests/test_edicion.py::test_editar_tarea_inexistente_devuelve_404 PASSED [ 40%]
+tests/test_edicion.py::test_actualizar_tarea_devuelve_falso_sin_registros PASSED [ 44%]
+tests/test_eliminacion.py::test_eliminar_tarea_reduce_el_listado PASSED  [ 48%]
+tests/test_eliminacion.py::test_eliminar_tarea_inexistente_muestra_error PASSED [ 52%]
+tests/test_eliminacion.py::test_eliminar_tarea_no_acepta_get PASSED      [ 56%]
+tests/test_eliminacion.py::test_eliminar_tarea_devuelve_resultado PASSED [ 60%]
+tests/test_registro.py::test_registro_valido_guarda_tarea PASSED         [ 64%]
+tests/test_registro.py::test_registro_sin_nombre_muestra_error PASSED    [ 68%]
+tests/test_registro.py::test_registro_rechaza_prioridad_invalida PASSED  [ 72%]
+tests/test_registro.py::test_insertar_tarea_devuelve_identificador PASSED [ 76%]
+tests/test_registro.py::test_validar_registro_acepta_datos_correctos PASSED [ 80%]
+tests/test_seguimiento.py::test_cambiar_estado_valido PASSED             [ 84%]
+tests/test_seguimiento.py::test_cambiar_estado_invalido PASSED           [ 88%]
+tests/test_seguimiento.py::test_cambiar_prioridad_valida PASSED          [ 92%]
+tests/test_seguimiento.py::test_cambiar_prioridad_invalida PASSED        [ 96%]
+tests/test_seguimiento.py::test_cambiar_campo_valida_los_valores_permitidos PASSED [100%]
+
+============================== 25 passed in 0.90s ==============================
+exit=0

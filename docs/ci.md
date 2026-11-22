@@ -21,3 +21,23 @@ El archivo `.github/workflows/ci.yml` define el workflow `Integracion Continua`.
 - Salida local de la corrección: `.remedial/evidencias/pytest_estructura_corregido.txt`.
 
 La falla se detectó antes de integrar el código a `main`, lo que muestra que el workflow cumple su función de bloquear cambios que no pasan las pruebas.
+
+## Ejecuciones posteriores
+
+Todos los Pull Requests integrados pasaron la integración continua antes de llegar a `main`:
+
+| PR | Rama | Run |
+| --- | --- | --- |
+| #22 | `feature/registro-tareas` | [45052578947](https://github.com/netfoor/TaskManager-DevOps/actions/runs/45052578947) |
+| #23 | `feature/editar-tareas` | [45052581616](https://github.com/netfoor/TaskManager-DevOps/actions/runs/45052581616) |
+| #24 | `feature/eliminar-tareas` | [45052587354](https://github.com/netfoor/TaskManager-DevOps/actions/runs/45052587354) |
+| #25 | `feature/estado-prioridad` | [45052589214](https://github.com/netfoor/TaskManager-DevOps/actions/runs/45052589214) |
+| #27 | `fix/editar-inexistente` | [45054946943](https://github.com/netfoor/TaskManager-DevOps/actions/runs/45054946943) |
+| #32 | `docs/entrega-monitoreo` | [45054954056](https://github.com/netfoor/TaskManager-DevOps/actions/runs/45054954056) |
+| #33 | `chore/gunicorn` | [45054963764](https://github.com/netfoor/TaskManager-DevOps/actions/runs/45054963764) |
+| #34 | `ci/monitoreo-6h` | [45056229980](https://github.com/netfoor/TaskManager-DevOps/actions/runs/45056229980) |
+| #36 | `fix/monitoreo-shell` | [45057501621](https://github.com/netfoor/TaskManager-DevOps/actions/runs/45057501621) |
+
+Después de las integraciones, `main` volvió a pasar con 26 pruebas, por ejemplo en los runs [45055567240](https://github.com/netfoor/TaskManager-DevOps/actions/runs/45055567240), [45056458896](https://github.com/netfoor/TaskManager-DevOps/actions/runs/45056458896) y [45057709595](https://github.com/netfoor/TaskManager-DevOps/actions/runs/45057709595).
+
+La entrega continua se ejecutó al publicar `v1.0.0` en el run [45055670829](https://github.com/netfoor/TaskManager-DevOps/actions/runs/45055670829) y terminó en success.

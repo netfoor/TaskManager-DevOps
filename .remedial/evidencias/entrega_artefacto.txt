@@ -1,0 +1,19 @@
+=== Verificacion del artefacto de entrega ===
+Release: https://github.com/netfoor/TaskManager-DevOps/releases/tag/v1.0.0
+Run: https://github.com/netfoor/TaskManager-DevOps/actions/runs/45055670829
+Artefacto: TaskManager-v1 (id 14767231987, 7606 bytes)
+
+Archivos descargados:
+./app.py
+./requirements.txt
+./static/css/style.css
+./static/js/app.js
+./static/js/modulos/registro.js
+./templates/acciones/fila/edicion.html
+./templates/acciones/fila/eliminacion.html
+./templates/acciones/fila/seguimiento.html
+./templates/acciones/globales/registro.html
+./templates/editar.html
+./templates/index.html
+
+Tamano en disco: 84K

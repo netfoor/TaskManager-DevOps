@@ -1,0 +1,3 @@
+monitoreo	Verificar salud y pagina principal	2026-11-22T18:52:19.7470963Z ^[[36;1m  echo "$(date -u +%FT%TZ) ruta=$ruta codigo=$codigo tiempo=${tiempo}s"^[[0m
+monitoreo	Verificar salud y pagina principal	2026-11-22T18:52:21.1643636Z 2026-11-22T18:52:21Z ruta=/health codigo=200 tiempo=1.344063s
+monitoreo	Verificar salud y pagina principal	2026-11-22T18:52:21.2913981Z 2026-11-22T18:52:21Z ruta=/ codigo=200 tiempo=0.117429s

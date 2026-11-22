@@ -1,6 +1,6 @@
 # Pruebas funcionales
 
-Las pruebas se ejecutaron contra la aplicación real en local, con Python 3.13, Flask 3.1.3 y una base SQLite temporal definida con `TASKMANAGER_DB`. La salida completa de la ejecución está en `.remedial/evidencias/funcional_local.txt` y la de las pruebas automáticas en `.remedial/evidencias/pytest_integrado.txt`.
+Las pruebas se ejecutaron contra la aplicación real en local, con Python 3.13, Flask 3.1.3 y una base SQLite temporal definida con `TASKMANAGER_DB`. La salida completa de la ejecución está en `docs/evidencias/pruebas_funcionales.txt` y la de las pruebas automáticas en `docs/evidencias/pruebas_automaticas.txt`.
 
 | ID | Prueba y pasos | Resultado esperado | Resultado obtenido | Estado |
 | --- | --- | --- | --- | --- |
@@ -38,4 +38,4 @@ Después del despliegue en Railway se ejecutó el mismo recorrido funcional cont
 | Eliminar la tarea | Mensaje «La tarea se eliminó correctamente.»; la tarea desapareció del listado. |
 | Consultar `/health` | `{"base_de_datos":"disponible","estado":"ok","ruta":"/data/tareas.db"}`, código 200. |
 
-La salida completa está en `.remedial/evidencias/despliegue_verificacion.txt`.
+La salida completa está en `docs/evidencias/despliegue_verificacion.txt`.

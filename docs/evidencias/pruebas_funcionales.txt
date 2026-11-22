@@ -1,5 +1,5 @@
 === Pruebas funcionales locales - 2026-11-22T12:02:30-06:00 ===
-Base de datos: /tmp/opencode/pruebas_funcionales/tareas.db
+Base de datos: archivo SQLite temporal configurado con TASKMANAGER_DB.
 
 --- CP01 Registrar una tarea ---
 Pasos: POST /tareas con nombre 'Elaborar documentacion', descripcion y prioridad Alta.
@@ -40,7 +40,7 @@ Pasos: POST /tareas/9999/editar con datos validos.
 <p class="aviso">La tarea se actualizó correctamente.</p>
 
 --- CP09 Health ---
-{"base_de_datos":"disponible","estado":"ok","ruta":"/tmp/opencode/pruebas_funcionales/tareas.db"}
+{"base_de_datos":"disponible","estado":"ok","ruta":"archivo SQLite temporal"}
 
 Codigo HTTP: 200
 Tiempo: 0.004206s

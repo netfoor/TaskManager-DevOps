@@ -21,9 +21,8 @@ La incidencia #35 se corrigió cambiando la sentencia a `for ruta in /health /; 
 
 ## Evidencia
 
-- `.remedial/evidencias/monitoreo_fallo_45057295341.log`
-- `.remedial/evidencias/monitoreo_exitoso_45057508119.txt`
-- `.remedial/evidencias/monitoreo_final_main_45057779144.log`
-- `.remedial/evidencias/despliegue_verificacion.txt`
+- Resumen de las tres ejecuciones: `docs/evidencias/monitoreo.txt`.
+- Verificación funcional del despliegue: `docs/evidencias/despliegue_verificacion.txt`.
+- Registros completos en Actions: [45057295341](https://github.com/netfoor/TaskManager-DevOps/actions/runs/45057295341), [45057508119](https://github.com/netfoor/TaskManager-DevOps/actions/runs/45057508119) y [45057779144](https://github.com/netfoor/TaskManager-DevOps/actions/runs/45057779144).
 
 El servicio tiene sueño automático habilitado por el plan Free, por lo que la primera petición después de un periodo inactivo puede tardar más; las ejecuciones de monitoreo dejan constancia de esos tiempos.

@@ -34,6 +34,6 @@ El servicio existente `semiconductores` no fue modificado, reiniciado ni tuvo ca
 - La página principal respondió código 200 en la URL pública.
 - `/health` devolvió `{"base_de_datos":"disponible","estado":"ok","ruta":"/data/tareas.db"}` con código 200.
 - Se verificaron en producción el registro, la edición, el cambio de estado, el cambio de prioridad y la eliminación de una tarea; la tarea de prueba se eliminó al final.
-- La salida completa está en `.remedial/evidencias/despliegue_verificacion.txt`.
+- La salida completa está en `docs/evidencias/despliegue_verificacion.txt`.
 
 Los despliegues posteriores `15229257-fe5a-4570-9305-c8054f1a2757` y `b4cc61a3-5b8d-4865-96b3-29e433d5b8fe` quedaron en `NEEDS_APPROVAL` porque solo cambiaban workflows de GitHub y no el código de la aplicación. La instancia activa sigue siendo el despliegue verificado `241faf30-7bfc-4512-80f2-db778359a367`; esos dos pendientes requieren aprobación manual en Railway si se desea dejar el panel sin despliegues en espera.

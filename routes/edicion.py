@@ -32,6 +32,10 @@ def actualizar_tarea(identificador: int, nombre: str, descripcion: str, priorida
 @bp.route("/tareas/<int:identificador>/editar", methods=["GET", "POST"])
 def editar_tarea(identificador: int):
     if request.method == "POST":
+        if obtener_tarea(identificador) is None:
+            flash("No se encontró la tarea solicitada.", "error")
+            return redirect(url_for("indice"))
+
         nombre = request.form.get("nombre", "")
         descripcion = request.form.get("descripcion", "")
         prioridad = request.form.get("prioridad", "Media")

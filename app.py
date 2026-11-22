@@ -58,7 +58,7 @@ def inicializar_db() -> None:
 
 def obtener_tareas() -> list[sqlite3.Row]:
     """Devuelve todas las tareas, de la más reciente a la más antigua."""
-    return get_db().execute("SELECT * FROM tareas ORDER BY id ASC").fetchall()
+    return get_db().execute("SELECT * FROM tareas ORDER BY id DESC").fetchall()
 
 
 def base_disponible() -> bool:

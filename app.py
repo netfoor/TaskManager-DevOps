@@ -89,6 +89,7 @@ def listar_scripts() -> list[str]:
 def crear_app(configuracion: dict | None = None) -> Flask:
     """Construye la aplicación Flask y registra los módulos disponibles."""
     aplicacion = Flask(__name__)
+    aplicacion.config["SECRET_KEY"] = os.environ.get("TASKMANAGER_SECRET_KEY", "clave-de-desarrollo")
     aplicacion.config["DATABASE"] = ruta_base_datos()
     if configuracion:
         aplicacion.config.update(configuracion)
